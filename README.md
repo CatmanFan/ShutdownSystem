@@ -21,3 +21,6 @@ Several methods, including undocumented functions converted from C++, can be use
 
 ## Warning
 Some of the methods used to hard shutdown the computer are UNSAFE and will lead to the loss of all unsaved data if used. **It is recommended to try this application on a virtual machine instead!**
+
+## Credits
+Power icon by Cole Bemis, using MIT (Open Source) license.
