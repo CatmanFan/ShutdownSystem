@@ -76,6 +76,7 @@ namespace ShutdownSystem
             this.InitiateSystemShutdownEx_NF = new System.Windows.Forms.ToolStripMenuItem();
             this.InitiateSystemShutdownEx_R = new System.Windows.Forms.ToolStripMenuItem();
             this.InitiateSystemShutdownEx_RF = new System.Windows.Forms.ToolStripMenuItem();
+            this.About = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -461,7 +462,10 @@ namespace ShutdownSystem
             // 
             // WarningToolTip
             // 
+            this.WarningToolTip.AutoPopDelay = 10000;
+            this.WarningToolTip.InitialDelay = 500;
             this.WarningToolTip.IsBalloon = true;
+            this.WarningToolTip.ReshowDelay = 100;
             this.WarningToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             this.WarningToolTip.ToolTipTitle = "Warning";
             // 
@@ -504,12 +508,23 @@ namespace ShutdownSystem
             this.InitiateSystemShutdownEx_RF.Text = "Restart (force exit apps)";
             this.InitiateSystemShutdownEx_RF.Click += new System.EventHandler(this.InitiateSystemShutdownEx_RF_Click);
             // 
+            // About
+            // 
+            this.About.Location = new System.Drawing.Point(384, 14);
+            this.About.Name = "About";
+            this.About.Size = new System.Drawing.Size(79, 23);
+            this.About.TabIndex = 2;
+            this.About.Text = "About";
+            this.About.UseVisualStyleBackColor = true;
+            this.About.Click += new System.EventHandler(this.About_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(470, 372);
+            this.Controls.Add(this.About);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -517,6 +532,7 @@ namespace ShutdownSystem
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShutdownSystem";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -584,6 +600,7 @@ namespace ShutdownSystem
         private System.Windows.Forms.ToolStripMenuItem InitiateSystemShutdownEx_NF;
         private System.Windows.Forms.ToolStripMenuItem InitiateSystemShutdownEx_R;
         private System.Windows.Forms.ToolStripMenuItem InitiateSystemShutdownEx_RF;
+        private System.Windows.Forms.Button About;
     }
 }
 

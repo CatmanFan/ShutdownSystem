@@ -16,6 +16,8 @@ namespace ShutdownSystem
         {
             InitializeComponent();
 
+            Text = Application.ProductName;
+
             Array List = Enum.GetValues(typeof(Commands.NtStatus));
             foreach (var item in List)
                 NtStatus.Items.Add(item.ToString());
@@ -68,7 +70,7 @@ namespace ShutdownSystem
         {
             Commands.ShutdownPrivilege();
             Commands.NtStatus status;
-            if (Enum.TryParse<Commands.NtStatus>(NtStatus.SelectedItem.ToString(), true, out status))
+            if (Enum.TryParse(NtStatus.SelectedItem.ToString(), true, out status))
                 Task.Factory.StartNew(() => { Commands.NtRaiseHardError(status, 0, 0, IntPtr.Zero, 6, out uint Response); });
         });
 
@@ -80,5 +82,10 @@ namespace ShutdownSystem
         }
 
         private void NtStatus_SelectedIndexChanged(object sender, EventArgs e) => NtRaiseHardError.Enabled = NtStatus.SelectedIndex >= 0;
+
+        private void About_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{Application.ProductName} v{Application.ProductVersion}\n© CatmanFan / Mr._Lechkar 2023", About.Text);
+        }
     }
 }
